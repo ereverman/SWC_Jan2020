@@ -18,8 +18,7 @@ C. I have used R frequently.
 
 
 ## Start the Lesson:
-
-(here is the link to the repo: https://swcarpentry.github.io/r-novice-gapminder/)
+https://swcarpentry.github.io/r-novice-gapminder/
 
 * Earlier today, you cloned the Git repository with the data you will need for today and tomorrow's R lesson. There should be a directory on your desktop named: ku-swc-files-master. We won't work with this yet, but will need it a little later.
 
@@ -37,6 +36,8 @@ C. I have used R frequently.
   * Call Functions
   * Manage packages
   
+  
+  
 ### 1. Open R Studio
 Give a brief tour of what you see:
 * Three panes
@@ -45,9 +46,13 @@ Give a brief tour of what you see:
   * There is a better way to write commands in the form of an R script.
 * End with new file button
 
+
+
 ### 2. Open a new R script file.
 * Run button
 * Save button
+
+
 
 ### 3. Using R as a calculator:
 * Let's define a new section in our R script:
@@ -60,6 +65,7 @@ Give a brief tour of what you see:
 
 # R follows order of operations:
 3 + 5 * 2
+
 # Spacing between numbers helps with readability and isn't required. This also works:
 3+5*2
 
@@ -73,6 +79,8 @@ Give a brief tour of what you see:
 5e3
 
 ```
+
+
 
 ### 4. Mathematical Functions:
 * R has several built in functions, similar to what you saw working with bash this morning.
@@ -89,15 +97,17 @@ log(1)
 # Calculate base-10 logarithm:
 log10(10)
 
-# Calculate exponents 2 ways:
+# Calculate exponents:
 exp(0.5)
-e^(1/2)
 
 ```
 * There are a lot of functions that are loaded automatically in R. I don't know them all, but they typically have memorable names.
 * To find other functions you might need, you can:
   * Look them up in Google.
   * If you remember part of the function name, you can begin typing and then use tab-compete to look up the funtion in R Studio.
+  
+  
+  
   
 ### 5. Comparing things:
 ```
@@ -123,6 +133,9 @@ e^(1/2)
 
 ```
 * Be careful with comparisons. Only use == for comparing integers (whole numbers). You may get unexpected results if you have any differences in rounding in decimals that are represented in your data.
+
+
+
 
 ### 6. Variables and Assignment:
 ```
@@ -161,3 +174,83 @@ x = 1/40
  * Be descriptive with names, even if they are a little long. Remember tab-complete in R Studio will help you not have to type out long names
 ```
 
+
+
+### 7. Vectorization:
+* Much of the power of R relies on vectorization of information.
+* In R, all of the information stored in a single vector is the same data type (ex. all integers, all characters)
+* We will get a brief introduction here and will spend more time on this later.
+
+```
+# Explore vectors----
+
+1:5     # Sequence, includes 1 and 5
+
+2^(1:5) # Calculate 2 raised to the powers 1 thru 5
+
+x <- 1:5  # assign a variable
+2^x       # gives same answer as before
+
+```
+
+
+
+### 8. Managing your environment:
+* ls() works in R Studio similar to what you saw this morning.
+
+```
+# Other tips----
+
+ls()
+
+# using rm to remove objects:
+rm(x)
+
+rm(list = ls()) # Removes everything in your environment
+
+```
+
+
+
+### 9. R Packages
+* When you open R, several functions are already loaded.
+* You can get access to functions that have been written by other community contributors by installing packages.
+* This can be useful for running specific analyses, or getting additional tools that help with data processing.
+
+```
+# Installing Packages----
+
+# what is installed?
+installed.packages()
+
+# Install a package:
+install.packages("ggplot2")
+# If prompted to select a cran mirror, select USA, KS
+
+
+# Update packages:
+update.packages()
+
+# Remove packages:
+remove.packages("ggplot2")
+
+# After installing a package, make it available:
+install.packages("ggplot2")
+library(ggplot2)
+
+```
+
+
+### 10. Challenges:
+
+## Etherpad:
+```
+1. Assign the following variables:
+
+mass <- 47.5
+age <- 122
+
+2. What is the value of each variable?
+
+mass <- mass * 2.3
+age <- age
