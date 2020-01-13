@@ -28,4 +28,20 @@ C. I have used R frequently.
     * R is a programming language and a software tool for data manipulation, statistics, and data visualization. When you downloaded R, you downloaded the base version of this tool. You don't need R Studio to use R. 
     * R Studio is an IDE for R. IDE is integrated development environment. R Studio has several additional tools that help you organize your data projects and keep track of the scripts you write to run specific analyses.
     
-* 
+    
+* The first thing we will do this afternoon is take a walkthrough of R Studio to give you an idea of some of these tools.
+* Our primary goals are to get familiar with what you see when you use R Studio in each of the panes.
+* We will:
+  * Define variables
+  * Learn how to manage the R Studio Session
+  * Call Functions
+  * Manage packages
+  
+### 1. Open R Studio
+Give a brief tour of what you see:
+* Three panes
+* End with new file button
+
+### 2. Open a new R script file.
+* Run button
+* Save button
