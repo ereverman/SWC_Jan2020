@@ -263,7 +263,7 @@ age <- age
 
 ```
 ## Time for a break
-====
+============================================================================================================================
 
 ### Seeking Help in R
 There are several built in ways to find more information about functions in r:
@@ -296,4 +296,8 @@ RStudio cheat sheets: http://www.rstudio.com/resources/cheatsheets/
 Cookbook for R: http://www.cookbook-r.com
 ```
 
-====
+============================================================================================================================
+
+### Project Managment in R Studio:
+
+
