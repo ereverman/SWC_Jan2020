@@ -201,6 +201,10 @@ x <- 1:5  # assign a variable
 ```
 # Other tips----
 
+# Navigate to sections delineated with ----
+# Lets go to the Mathematical Functions section.
+
+
 ls()
 
 # using rm to remove objects:
@@ -259,3 +263,37 @@ age <- age
 
 ```
 ## Time for a break
+====
+
+### Seeking Help in R
+There are several built in ways to find more information about functions in r:
+The Help panel.
+```
+# Getting Help----
+
+?ls
+help(ls)
+
+# Fuzzy search:
+??ls
+
+
+# Many packages have vignettes:
+vignette(ggplot2)
+
+# If there are no vignettes:
+help("ggplot2")
+
+```
+
+## Etherpad:
+
+```
+Some resources for getting help:
+
+Quick R: https://www.statmethods.net
+RStudio cheat sheets: http://www.rstudio.com/resources/cheatsheets/
+Cookbook for R: http://www.cookbook-r.com
+```
+
+====
