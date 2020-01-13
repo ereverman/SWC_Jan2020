@@ -40,8 +40,124 @@ C. I have used R frequently.
 ### 1. Open R Studio
 Give a brief tour of what you see:
 * Three panes
+* You can type directly in the Console pane, but what happens if you want to save a command and run it again?
+  * The arrow up keys will work here the same way they did earlier to retrieve previously run commands, but this doesn't save the commands you wrote.
+  * There is a better way to write commands in the form of an R script.
 * End with new file button
 
 ### 2. Open a new R script file.
 * Run button
 * Save button
+
+### 3. Using R as a calculator:
+* Let's define a new section in our R script:
+
+```
+# Using R as a calculator----          
+# Like this morning, # indicates a comment and will be ignored by R. The ---- help us 
+# define a new section. We can use this tool to help navigate through sections of code.
+
+
+# R follows order of operations:
+3 + 5 * 2
+# Spacing between numbers helps with readability and isn't required. This also works:
+3+5*2
+
+# We can force R to perform operations in a specific order with parentheses:
+(3 + 5) * 2
+
+# R uses scientific notation for large and small numbers:
+2/10000
+
+# You can give R numbers in scientific notation:
+5e3
+
+```
+
+### 4. Mathematical Functions:
+* R has several built in functions, similar to what you saw working with bash this morning.
+
+```
+# Mathematical Funtions----
+
+# Calculate the sin:
+sin(1)
+
+# Calculate natural log:
+log(1)
+
+# Calculate base-10 logarithm:
+log10(10)
+
+# Calculate exponents 2 ways:
+exp(0.5)
+e^(1/2)
+
+```
+* There are a lot of functions that are loaded automatically in R. I don't know them all, but they typically have memorable names.
+* To find other functions you might need, you can:
+  * Look them up in Google.
+  * If you remember part of the function name, you can begin typing and then use tab-compete to look up the funtion in R Studio.
+  
+### 5. Comparing things:
+```
+# Making Comparisons----
+
+# Are these things the same?
+1 == 1   # == reads as "is equal to"
+
+# Are these things different?
+1 != 2   # != reads "is not equal to"
+
+# Less than?
+1 < 2
+
+# Less than or equal to?
+1 <= 2
+
+# Greater than?
+1 > 2
+
+# Greater than or equal to?
+1 >=-9
+
+```
+* Be careful with comparisons. Only use == for comparing integers (whole numbers). You may get unexpected results if you have any differences in rounding in decimals that are represented in your data.
+
+### 6. Variables and Assignment:
+```
+# Assigning variables----
+
+x <- 1/40
+x
+
+# Do Calculations with assigned variables:
+log(x)
+
+# Reassign variables:
+x <- 100
+x
+
+# New variables can use information stored in variables:
+x <- x + 1
+y <- x * 2
+
+# This also works, but is not recommended because it can be confusing:
+x = 1/40
+```
+
+## In Etherpad:
+```
+* Rules for assigning variables:
+  * Dont start with numbers.
+  * Don't include spaces.
+  * Do include letters, numbers, underscores and periods.
+  * Be consistent.
+  * Some examples of names:
+    * periods.between.words
+    * underscores_between_words
+    * CaseToSeparateWords
+    
+ * Be descriptive with names, even if they are a little long. Remember tab-complete in R Studio will help you not have to type out long names
+```
+
