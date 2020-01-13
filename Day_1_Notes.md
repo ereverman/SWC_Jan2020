@@ -254,3 +254,8 @@ age <- 122
 
 mass <- mass * 2.3
 age <- age
+
+3. Install the packages plyr and gapminder.
+
+```
+## Time for a break
