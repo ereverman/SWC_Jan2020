@@ -20,4 +20,52 @@ library("ggplot2)
 ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
   geom_point()
 
+```
+#### Dissect:
+1. ggplot function
+2. data, mapping, geoms
 
+### Etherpad:
+
+Show how life expectancy has changed over time:
+
+### Solution:
+```
+head(gapminder)
+
+ggplot(data = gapminder, mapping = aes(x = year, y = lifeExp)) +
+geom_point()
+
+```
+How would we add color to the points in the plot?
+
+```
+ggplot(data = gapminder, mapping = aes(x = year, y = lifeExp, color = continent)) +
+  geom_point()
+  
+```
+
+Is there a better way to show how data changes over time?
+
+```
+ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, by=country, color=continent)) +
+  geom_line()
+
+
+# what is by argument doing?
+ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, color=continent)) +
+  geom_line()
+```
+
+Can we have both?
+
+```
+ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, by=country, color=continent)) +
+  geom_line() + geom_point()
+  
+# Does order matter? Yes. If you plot points before lines, the lines will show up on top of the points.
+
+ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, by=country)) +
+  geom_line(mapping = aes(color=continent)) + geom_point()
+  
+```
