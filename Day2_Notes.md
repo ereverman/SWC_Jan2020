@@ -25,7 +25,7 @@ ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
 1. ggplot function
 2. data, mapping, geoms
 
-### Etherpad:
+### Question:
 
 Show how life expectancy has changed over time:
 
@@ -69,3 +69,159 @@ ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, by=country)) +
   geom_line(mapping = aes(color=continent)) + geom_point()
   
 ```
+### try this:
+
+Switch the order of points and line layers and see what happened:
+
+### Solution:
+```
+ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, by=country)) +
+ geom_point() + geom_line(mapping = aes(color=continent))
+```
+
+## Transformations and Statistics
+
+We can nest data transformations within the ggplot command. This is a good option if you don't want to change your data frame.
+
+```
+ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
+  geom_point()
+
+
+# It is hard to see the relationship between points, so let's change the scale of the x axis:
+
+ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(alpha = 0.5) + scale_x_log10()
+
+
+# Now, we see that the spread of the data has been condensed and we can start to see a pattern. We can fit a trend line to these data with ggplot:
+
+ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() + scale_x_log10() + geom_smooth(method="lm")
+  
+
+
+# We can change the way the line looks:
+
+ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() + scale_x_log10() + geom_smooth(method="lm", size=1.5)
+  
+```
+
+### Question:
+Change the color of all of the points to orange.
+Change the color of the line to black.
+
+
+### Solution:
+```
+ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
+ geom_point(size=3, color="orange") + scale_x_log10() +
+ geom_smooth(method="lm", size=1.5)
+```
+
+
+## Multipanel figures
+
+There is a lot of information in the previous plots. It is sometimes desirable to split the information into separate plots.
+
+```
+# make a subset of the data:
+
+americas <- gapminder[gapminder$continent == "Americas", ]
+head(americas)
+unique(americas$continent)
+
+
+ggplot(data = americas, mapping = aes(x = year, y = lifeExp)) +
+geom_line() +
+facet_wrap( ~ country)
+
+# This split up the data by country, but now the x axis is hard to read.
+
+ggplot(data = americas, mapping = aes(x = year, y = lifeExp)) +
+geom_line() +
+facet_wrap( ~ country) +
+theme(axis.text.x = element_text(angle = 45))
+
+```
+This looks pretty good, but what else would you change if you were going to put this in a journal manuscript?
+
+```
+# modify the axes labels:
+
+ggplot(data = americas, mapping = aes(x = year, y = lifeExp, color=continent)) +
+  geom_line() + facet_wrap( ~ country) +
+  labs(
+    x = "Year",              # x axis title
+    y = "Life expectancy",   # y axis title
+    title = "Figure 1",      # main title of figure
+    color = "Continent"      # title of legend
+  ) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+# center the title:
+
+ggplot(data = americas, mapping = aes(x = year, y = lifeExp, color=continent)) +
+  geom_line() + facet_wrap( ~ country) +
+  labs(
+    x = "Year",              # x axis title
+    y = "Life expectancy",   # y axis title
+    title = "Figure 1",      # main title of figure
+    color = "Continent"      # title of legend
+  ) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1),
+  plot.title = element_text(hjust = 0.5))
+  
+  
+# remove the legend:
+
+ggplot(data = americas, mapping = aes(x = year, y = lifeExp, color=continent)) +
+  geom_line() + facet_wrap( ~ country) +
+  labs(
+    x = "Year",              # x axis title
+    y = "Life expectancy",   # y axis title
+    title = "Figure 1",      # main title of figure
+    color = "Continent"      # title of legend
+  ) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1),
+  plot.title = element_text(hjust = 0.5)) +
+  guides(color = FALSE)
+  
+  
+# change the plot background and remove grid lines:
+
+ggplot(data = americas, mapping = aes(x = year, y = lifeExp, color=continent)) +
+  geom_line() + facet_wrap( ~ country) +
+  labs(
+    x = "Year",              # x axis title
+    y = "Life expectancy",   # y axis title
+    title = "Figure 1",      # main title of figure
+    color = "Continent"      # title of legend
+  ) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1),
+  plot.title = element_text(hjust = 0.5)) +
+  guides(color = FALSE) +
+  theme_classic()
+  
+```
+
+### Export the plot:
+
+Make a results/ directory in your gapminder-project directory.
+
+```
+LifeExp_plot <- ggplot(data = americas, mapping = aes(x = year, y = lifeExp, color=continent)) +
+  geom_line() + facet_wrap( ~ country) +
+  labs(
+    x = "Year",              # x axis title
+    y = "Life expectancy",   # y axis title
+    title = "Figure 1",      # main title of figure
+    color = "Continent"      # title of legend
+  ) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1),
+  plot.title = element_text(hjust = 0.5)) +
+  guides(color = FALSE) +
+  theme_classic()
+  
+ggsave(filename = "results/lifeExp.png", plot = lifeExp_plot, width = 12, height = 10, dpi = 300, units = "cm")
