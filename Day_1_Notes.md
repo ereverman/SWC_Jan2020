@@ -91,6 +91,9 @@ https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts
 * R has several built in functions, similar to what you saw working with bash this morning.
 
 ```
+# Function Syntax:
+# function_name(arguments)
+
 # Mathematical Funtions----
 
 # Calculate the sin:
