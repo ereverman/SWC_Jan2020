@@ -279,6 +279,12 @@ ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
   scale_x_log10() + 
   geom_smooth(method="lm", aes(color = continent))
 
+
+
+
+
+
+
 # Including information about 3 quantitative variables:----
 head(gapminder)
 
@@ -381,6 +387,10 @@ ggplot(gapminder, aes(lifeExp)) +
 ggplot(gapminder, aes(lifeExp)) +
   geom_density(aes(fill = factor(year)), alpha = 0.3) +
   facet_wrap( ~ continent, scales = "free")
+
+
+
+
 
 # Change the appearance of text:------
 ggplot(data = americas, mapping = aes(x = year, y = lifeExp)) +
