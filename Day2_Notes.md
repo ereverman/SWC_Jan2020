@@ -119,8 +119,6 @@ MeanLifeExp_byYear
 # Question about finding duplicate data:
 
 # make a test case:
-# nativate to the data files section.
-cats <- read.csv("data/feline_data.csv", header = TRUE)
 cats
 
 # make a duplicate row in cats:
@@ -222,12 +220,6 @@ ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
 ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
   geom_point() + scale_x_log10() + geom_smooth(method="lm", size=1.5)
 
-# What if you are interested in diffences among your groups?
-
-ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
-  geom_point(alpha = 0.3) + 
-  scale_x_log10() + 
-  geom_smooth(method="lm", aes(color = continent))
 
 # CHALLENGE: Change the points to orange (or your favorite color) and make them larger. Change the color of the best fit line to black:----
 ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
@@ -242,7 +234,7 @@ ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
   scale_x_log10() + 
   geom_smooth(method="lm", aes(color = continent))
 
-# Including information about 3 variables:----
+# Including information about 3 quantitative variables:----
 head(gapminder)
 
 ggplot(gapminder, aes(lifeExp, gdpPercap_log)) +
@@ -289,7 +281,7 @@ ggplot(gapminder, aes(continent, lifeExp)) +
   scale_fill_manual(values = c("purple","orange","blue","red","green")) +
   scale_color_manual(values = c("purple","orange","blue","red","green"))
 
-# CHALLENGE: plot the relationship between year and gpdPercap and specify the colors:----
+# CHALLENGE: plot the relationship between year and gpdPercap by country and specify the colors by continent:----
 
 ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, by=country, color=continent)) +
   geom_line() + geom_point() +
