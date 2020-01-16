@@ -13,6 +13,10 @@ cats
 # if needed, install.packages("ggplot2")
 library(ggplot2)
 
+
+
+
+
 # Challenges and Followup:----
 
 # 1. How many rows and columns are in gapminder?
@@ -134,6 +138,13 @@ anyDuplicated(cats_dup)
 cats_clean <- unique(cats_dup)
 
 
+
+
+
+
+
+
+
 # Plotting using ggplot2:----
 # Three elements to keep track of:
 # 1. dataset
@@ -162,6 +173,13 @@ ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp))
 # just a coordinate system.
 
 
+
+
+
+
+
+
+
 # CHALLENGE: Plot the change in life expentancy over time:----
 
 ggplot(gapminder, aes(year, lifeExp)) +
@@ -174,6 +192,13 @@ ggplot(gapminder, aes(year, lifeExp)) +
 
 ggplot(MeanLifeExp_byYear, aes(year, lifeExp)) +
   geom_point(aes(color = continent))
+
+
+
+
+
+
+
 
 # Line Plots:----
 # visualize data over time
@@ -196,6 +221,13 @@ ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, by=country)) +
 ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, by=country)) +
   geom_point() +
   geom_line(aes(color = continent))
+
+
+
+
+
+
+
 
 # Transformations and Statistics:----
 ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
@@ -221,10 +253,23 @@ ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
   geom_point() + scale_x_log10() + geom_smooth(method="lm", size=1.5)
 
 
+
+
+
+
+
+
 # CHALLENGE: Change the points to orange (or your favorite color) and make them larger. Change the color of the best fit line to black:----
 ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
   geom_point(color = "orange", size = 2) + scale_x_log10() + 
   geom_smooth(method="lm", color = "black")
+
+
+
+
+
+
+
 
 
 # What if you are interested in diffences among your groups? Hint: try using an aes with geom_smooth.
@@ -259,6 +304,14 @@ ggplot(CountryAvgs, aes(lifeExp, gdpPercap_log)) +
   geom_point(aes(size = pop, color = continent), alpha = 0.5) +
   geom_smooth(method = "lm", color = "black")
 
+
+
+
+
+
+
+
+
 # Boxplots:----
 head(gapminder)
 
@@ -287,10 +340,24 @@ ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, by=country, color=cont
   geom_line() + geom_point() +
   scale_color_manual(values = c("purple","orange","blue","red","green"))
 
+
+
+
+
+
+
+
 # Plot distributions:----
 
 ggplot(gapminder, aes(lifeExp)) +
   geom_density(aes(fill = continent), alpha = 0.3)
+
+
+
+
+
+
+
 
 # Plot with facets:-----
 americas <- gapminder[gapminder$continent == "Americas",]
@@ -298,6 +365,12 @@ ggplot(data = americas, mapping = aes(x = year, y = lifeExp)) +
   geom_line() + 
   facet_wrap( ~ country) + 
   theme(axis.text.x = element_text(angle = 45))
+
+
+
+
+
+
 
 
 # CHALLENGE: Make a facets plot for the distributions:-----
@@ -341,6 +414,13 @@ ggplot(data = americas, mapping = aes(x = year, y = lifeExp, color=continent)) +
   theme_classic()
 
 
+
+
+
+
+
+
+
 # Save the plot:----
 
 # Make a directory called results/
@@ -361,6 +441,13 @@ ggsave(filename = "lifeExp.png",
        height = 14, 
        dpi = 300, 
        units = "cm")
+
+
+
+
+
+
+
 
 
 
