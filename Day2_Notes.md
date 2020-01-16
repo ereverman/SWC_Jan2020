@@ -388,5 +388,6 @@ ggsave(filename = "lifeExp.png",
     # https://rstudio.com/resources/cheatsheets/
 # Rmisc: Calculating summary statistics (mean, 95% confidence intervals, standard error, standard deviation): Rmisc https://cran.r-project.org/web/packages/Rmisc/Rmisc.pdf
 
-# 
+# If you want access to my notes:
+# https://github.com/ereverman/SWC_Jan2020
 ```
