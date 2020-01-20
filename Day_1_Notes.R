@@ -1,6 +1,6 @@
 ## Introduction to R:
 
-```
+
 # Use R as a calculator:----
 
 3 + 5 * 2
@@ -329,5 +329,5 @@ while(z > 0.1){
   z <- runif(1)
   cat(z, "\n")
 }
-```
+
 
