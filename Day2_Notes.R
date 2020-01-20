@@ -1,5 +1,5 @@
 ## Follow up for day 1 and notes on ggplot2:
-```
+
 
 # Load Data:----
 
@@ -479,4 +479,4 @@ ggsave(filename = "lifeExp.png",
 
 # If you want access to my notes:
 # https://github.com/ereverman/SWC_Jan2020
-```
+
